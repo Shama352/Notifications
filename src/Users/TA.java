@@ -1,6 +1,8 @@
 package Users;
 
-public class TA {
+import observer.Observer;
+
+public class TA implements Observer{
 	String name;
 	String department;
 	String email;
@@ -52,7 +54,7 @@ public class TA {
 		this.department = department;
 	}
 	
-	public void notifyTA(String message) {
+	public void notify(String message) {
 		// do some stuff
 		
 	}
