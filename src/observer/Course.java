@@ -2,6 +2,7 @@ package observer;
 import java.util.ArrayList;
 
 import Gateways.EmailGateway;
+import Gateways.Gateways;
 import Messages.TaskAddedEmailMessage;
 import Users.Professor;
 import Users.Student;
@@ -102,21 +103,21 @@ public class Course implements Subject{
 		
 		// open connection for Email gateway and do some configurations to the object
 		
-		EmailGateway emailGateway = new EmailGateway();
+		Gateways emailGateway = new EmailGateway();
 		
 		
 		for (Professor professor : professorsForEmailNotification) {
-			professor.notifyProfessor(notification);
+			professor.notify(notification);
 			emailGateway.sendMessage(notification, professor.getEmail());
 		}
 		
 		for (TA ta : tasForEmailNotification) {
-			ta.notifyTA(notification);
+			ta.notify(notification);
 			emailGateway.sendMessage(notification, ta.getEmail());
 		}
 		
 		for (Student student : studentsForSMSNotification) {
-			student.notifyStudent(notification);
+			student.notify(notification);
 			emailGateway.sendMessage(notification, student.getEmail());
 		}
 	}

@@ -2,7 +2,9 @@ package Users;
 
 import java.sql.Date;
 
-public class Professor {
+import observer.Observer;
+
+public class Professor implements Observer {
 	String name;
 	String department;
 	Date hirringDate;
@@ -69,7 +71,7 @@ public class Professor {
 	}
 	
 	
-	public void notifyProfessor(String message) {
+	public void notify(String message) {
 		// do some stuff
 		
 	}
