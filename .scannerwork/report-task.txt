@@ -2,5 +2,5 @@ projectKey=Notification-App
 serverUrl=http://localhost:9000
 serverVersion=9.4.0.54424
 dashboardUrl=http://localhost:9000/dashboard?id=Notification-App
-ceTaskId=AYD4PfIPz3aGInxKRIwm
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYD4PfIPz3aGInxKRIwm
+ceTaskId=AYEAa1M7npp56iKKNnq7
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYEAa1M7npp56iKKNnq7

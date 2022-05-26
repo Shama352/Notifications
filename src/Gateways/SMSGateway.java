@@ -1,37 +1,37 @@
-package Gateways;
+package gateways;
 
 import Messages.DailyNewsMobileMessage;
 import Messages.GradesAnnouncementMobileMessage;
 import Messages.TaskAddedMobileMessage;
 
-public class SMSGateway extends Gateways{
-	
+public class SMSGateway extends Gateways {
+
 	public void sendMessage(Object message, String user) {
-		String[] placeHolders = new String[] {}; // set some place holders here 
-		
-		if(message instanceof DailyNewsMobileMessage) {
+		String[] placeHolders = new String[] {}; // set some place holders here
+
+		if (message instanceof DailyNewsMobileMessage) {
 			DailyNewsMobileMessage msg = (DailyNewsMobileMessage) message;
-			
+
 			msg.prepareMessage(placeHolders);
-			
+
 			// some code to send message
 		}
-		
-		else if(message instanceof GradesAnnouncementMobileMessage) {
+
+		else if (message instanceof GradesAnnouncementMobileMessage) {
 			GradesAnnouncementMobileMessage msg = (GradesAnnouncementMobileMessage) message;
-			
+
 			msg.prepareMessage(placeHolders);
-			
+
 			// some code to send message
 		}
-		
-		else if(message instanceof TaskAddedMobileMessage) {
+
+		else if (message instanceof TaskAddedMobileMessage) {
 			TaskAddedMobileMessage msg = (TaskAddedMobileMessage) message;
-			
+
 			msg.prepareMessage(placeHolders);
-			
+
 			// some code to send message to user
 		}
-		
+
 	}
 }
