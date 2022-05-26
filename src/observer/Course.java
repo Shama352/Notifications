@@ -1,3 +1,4 @@
+package observer;
 import java.util.ArrayList;
 
 import Gateways.EmailGateway;
@@ -6,7 +7,7 @@ import Users.Professor;
 import Users.Student;
 import Users.TA;
 
-public class Course {
+public class Course implements Subject{
 	
 	String name;
 	String code;
@@ -17,8 +18,8 @@ public class Course {
 	ArrayList<Professor> professorsForEmailNotification;
 	ArrayList<Professor> professorsForSMSNotification;
 	
-	ArrayList<TA> TAsForEmailNotification;
-	ArrayList<TA> TAsForSMSNotification;
+	ArrayList<TA> tasForEmailNotification;
+	ArrayList<TA> tasForSMSNotification;
 	
 	ArrayList<Student> studentsForEmailNotification;
 	ArrayList<Student> studentsForSMSNotification;
@@ -35,8 +36,8 @@ public class Course {
 		professorsForEmailNotification = new ArrayList<Professor>();
 		professorsForSMSNotification = new ArrayList<Professor>();
 		
-		TAsForEmailNotification = new ArrayList<TA>();
-		TAsForSMSNotification = new ArrayList<TA>();
+		tasForEmailNotification = new ArrayList<TA>();
+		tasForSMSNotification = new ArrayList<TA>();
 		
 		studentsForEmailNotification = new ArrayList<Student>();
 		studentsForSMSNotification = new ArrayList<Student>();
@@ -67,11 +68,11 @@ public class Course {
 	}
 	
 	public void subscribeTAForEmailNotification(TA ta) {
-		TAsForEmailNotification.add(ta);
+		tasForEmailNotification.add(ta);
 	}
 	
 	public void subscribeTAForSMSNotification(TA ta) {
-		TAsForSMSNotification.add(ta);
+		tasForSMSNotification.add(ta);
 	}
 	
 	public void subscribeStudentForEmailNotification(Student student) {
@@ -94,7 +95,7 @@ public class Course {
 	
 	// AddExam, PostGrades, PostAnnouncement  will be the same 
 
-	private void notifyAllUsers(String[] placeholders) {
+	public void notifyAllUsers(String[] placeholders) {
 		// notify users by email
 		TaskAddedEmailMessage msg = new TaskAddedEmailMessage();
 		String notification = msg.prepareMessage(placeholders);
@@ -109,7 +110,7 @@ public class Course {
 			emailGateway.sendMessage(notification, professor.getEmail());
 		}
 		
-		for (TA ta : TAsForEmailNotification) {
+		for (TA ta : tasForEmailNotification) {
 			ta.notifyTA(notification);
 			emailGateway.sendMessage(notification, ta.getEmail());
 		}
