@@ -2,12 +2,12 @@ package observer;
 
 import java.util.ArrayList;
 
-import Messages.TaskAddedEmailMessage;
-import Users.Professor;
-import Users.Student;
-import Users.TA;
 import gateways.EmailGateway;
 import gateways.Gateways;
+import messages.TaskAddedEmailMessage;
+import users.Professor;
+import users.Student;
+import users.TA;
 
 public class Course implements Subject {
 
@@ -38,8 +38,8 @@ public class Course implements Subject {
 		professorsForEmailNotification = new ArrayList<>();
 		professorsForSMSNotification = new ArrayList<>();
 
-		tasForEmailNotification = new ArrayList<TA>();
-		tasForSMSNotification = new ArrayList<TA>();
+		tasForEmailNotification = new ArrayList<>();
+		tasForSMSNotification = new ArrayList<>();
 
 		studentsForEmailNotification = new ArrayList<>();
 		studentsForSMSNotification = new ArrayList<>();
@@ -85,7 +85,7 @@ public class Course implements Subject {
 		studentsForSMSNotification.add(student);
 	}
 
-	public void AddAssignment(String assignName, String assignBody) {
+	public void addAssignment(String assignName, String assignBody) {
 		announcements.add(assignName);
 		String[] placeholders = new String[] { assignName, assignBody };
 		// do some logic here
